@@ -49,13 +49,13 @@ class SideMenu extends Component {
     let items = this.props.items.map(function(item, index) {
       let className = this.props.styles['item']
       if (this.state.active === item.slug) className += ' ' + this.props.styles['item--active']
-      return <div
+      return <MenuItem
         className={className}
         key={item.slug}
         name={item.name}
-        onClick={this.scrollTo.bind(this, item.slug)}>
-        {item.name}
-      </div>
+        pathname={this.props.category}
+        hash={`#${item.slug}`}
+        onClick={this.scrollTo.bind(this)}/>
     }.bind(this))
 
     let genres
@@ -92,10 +92,10 @@ class SideMenu extends Component {
     this.setState({ active: window.location.hash.replace('#', '') || 'trending-now' })
   }
 
-  scrollTo(id) {
+  scrollTo(evt) {
     scrollTo(
       this.props.scrollTop,
-      document.getElementById(id).parentNode.offsetTop - 80,
+      document.getElementById(evt.target.parentNode.getAttribute('href').split('#')[2]).parentNode.offsetTop - 80,
       { ease: 'linear', duration: 200 }
     )
   }
