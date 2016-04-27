@@ -48,7 +48,7 @@ class TVShow extends Component {
             <Link
               className={this.props.styles['tab']}
               activeClassName={this.props.styles['tab--active']}
-              to={'/tv-shows/' + this.props.id + '/season/' + season.season_number}
+              to={'/tv-shows/show/' + this.props.id + '/season/' + season.season_number}
               key={season.id}>
               Season {season.season_number}
               <Ink />
@@ -77,7 +77,7 @@ class TVShow extends Component {
             <Link
               className={this.props.styles['tab']}
               activeClassName={this.props.styles['tab--active']}
-              to={'/tv-shows/' + this.props.id + '/about'}>
+              to={'/tv-shows/show/' + this.props.id + '/about'}>
               About
               <Ink />
             </Link>

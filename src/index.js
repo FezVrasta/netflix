@@ -5,12 +5,7 @@ import 'babel-polyfill'
 
 import React from 'react'
 import { render } from 'react-dom'
-import { createHistory } from 'history'
-import { Router, Route, IndexRoute, IndexRedirect, Redirect, useRouterHistory } from 'react-router'
-
-const browserHistory = useRouterHistory(createHistory)({
-    basename: '/netflix'
-});
+import { Router, Route, IndexRoute, IndexRedirect, Redirect, hashHistory } from 'react-router'
 
 // components
 import App from './App'
@@ -25,7 +20,7 @@ import NotFound from './components/NotFound'
 let data = require('./data/data.json')
 
 render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Redirect from='/' to='/tv-shows' />
 
     <Route path='/tv-shows' category='tv-shows' component={App}>

@@ -52,7 +52,7 @@ class TVShowAbout extends Component {
             </div>
           </div>
         </div>
-        <DetailsPanel type='tvShow' item={this.props.item} trailer={this.state.trailer} />
+        <DetailsPanel type='tvShow' item={this.props.item} trailer={this.state.trailer} path={this.props.route.path} />
       </div>
     )
   }

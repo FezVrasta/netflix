@@ -8,11 +8,12 @@ import leftpad from 'left-pad'
 // components
 import VideoLightbox from './VideoLightbox'
 import Ink from 'react-ink'
+import { Link } from 'react-router'
 
 class DetailsPanel extends Component {
   constructor() {
     super()
-    this.state = { trailerOpened: window.location.hash === '#trailer' }
+    this.state = { trailerOpened: false }
   }
   render() {
     let playButtonText
@@ -27,7 +28,7 @@ class DetailsPanel extends Component {
 
     let trailer
     this.props.trailer && (trailer = (
-      <a href='#trailer' styleName='button button--modest' onClick={this.toggleTrailer.bind(this)}>
+      <a href='javascript:;' styleName='button button--modest' onClick={this.toggleTrailer.bind(this)}>
         <i styleName='icon' className='material-icons'>
         local_movies</i>Play trailer
         <Ink />
@@ -47,7 +48,7 @@ class DetailsPanel extends Component {
         <div styleName='details'></div>
         <div styleName='play'>
           {trailer}
-          <a href='#0' styleName='button'>
+          <a href='javascript:;' styleName='button'>
             <i styleName='icon' className='material-icons'>
             play_arrow</i>Play {playButtonText}
             <Ink />
@@ -63,9 +64,7 @@ class DetailsPanel extends Component {
     status === undefined && ( status = !this.state.trailerOpened )
     let time = status ? 150 : 0
     setTimeout(function() {
-      this.setState({ trailerOpened: status }, function() {
-          !this.state.trailerOpened && ( window.location.hash = '' )
-      })
+      this.setState({ trailerOpened: status })
     }.bind(this), time)
   }
 }
