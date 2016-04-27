@@ -41,6 +41,23 @@ var movieDB = {
         trailer: res.body.results[0]
       })
     }.bind(this))
+  },
+
+  getGenres(category) {
+    let url = `${data.api.url}/genre${data.api.requests[camelCase(category)]}/list`
+
+      request
+      .get(url)
+      .query({
+        'api_key': data.api.key
+      })
+      .end(function( err, res ) {
+        if (err) console.error(err)
+
+        this.setState({
+          genres: res.body.genres
+        })
+      }.bind(this))
   }
 
 }

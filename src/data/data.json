@@ -31,17 +31,8 @@
     "tvShows": "Search for TV shows here...",
     "movies": "Search for movies here..."
   },
-  "collections": {
-    "tvShows": [
-      "daredevil",
-      "jessica jones",
-      "house of cards",
-      "the walking dead",
-      "fear the walking dead",
-      "silicon valley",
-      "breaking bad",
-      "better call saul",
-      "person of interest"
-    ]
+  "singular": {
+    "tvShows": "show",
+    "movies": "movie"
   }
 }

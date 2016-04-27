@@ -6,6 +6,7 @@
   padding-top: 30px
   position: fixed
   width: 235px
+  height: unquote('calc(100vh - 80px)')
 
 .item
   display: flex
@@ -19,8 +20,25 @@
   font-size: 18px
   transition: all 0.2s ease-out
   position: relative
+  flex-shrink: 0
+  &--genre
+    text-transform: none
+    padding-left: 3em;
+    height: 40px;
+    font-size: 1em;
+
 
   &--active
     color: $accent
     background: rgba(0,0,0,0.13)
     border-radius: 0 2px 2px 0
+
+.divider
+  margin: 1em 0
+  border-bottom: 1px solid #424C51
+
+.genres
+  display: flex
+  flex-direction: column
+  overflow: auto
+  flex: 1

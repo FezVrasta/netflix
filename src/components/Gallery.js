@@ -36,7 +36,12 @@ class Gallery extends Component {
     let shows = <div styleName='loading'>Loading...</div>
 
     this.state.results.length && ( shows = this.state.results.slice(0, this.state.to).map(function(show, index) {
-      return <Card ref={index} key={show.id} id={show.id} pathname={this.props.pathname} image={show.backdrop_path} />
+      return <Card
+        ref={index}
+        key={show.id}
+        id={show.id}
+        pathname={this.props.pathname}
+        image={show.backdrop_path} />
     }.bind(this)))
 
     let loadMore
@@ -63,6 +68,8 @@ class Gallery extends Component {
     this.loadNewPage()
     this.updateVisibleCardsBound = this.updateVisibleCards.bind(this)
     window.addEventListener('resize', this.updateVisibleCardsBound)
+
+    this.props.rows && this.setState({rows: this.props.rows})
   }
 
   componentWillUnmount() {

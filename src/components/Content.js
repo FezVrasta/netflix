@@ -24,15 +24,31 @@ class Content extends Component {
   }
 
   render() {
-    let galleries = this.getItems().map(function(item, index) {
-      return item.api && <Gallery key={index} name={item.name} pathname={this.props.category} slug={item.slug} apiUrl={item.api} ref={index} />
-    }.bind(this))
+    let galleries
+    if (this.props.route.type !== 'genre') {
+      galleries = this.getItems().map(function(item, index) {
+        return item.api && (
+          <Gallery
+            key={index}
+            name={item.name}
+            pathname={`${this.props.category}/${data.singular[camelCase(this.props.category)]}`}
+            slug={item.slug}
+            apiUrl={item.api}
+            ref={index} />
+        )
+      }.bind(this))
+    } else {
+      galleries = <Gallery
+        pathname={`${this.props.category}/${data.singular[camelCase(this.props.category)]}`}
+        apiUrl={`/genre/${this.props.params.id}${data.api.requests[camelCase(this.props.category)]}s`}
+        rows={4} />
+    }
 
     return (
       <main styleName='content' >
         <SideMenu
           items={this.getItems()}
-          base={this.props.category}
+          category={this.props.category}
           scrollTop={this.props.scrollTop} />
         <div styleName='column'>
           <SearchBar category={this.props.category} placeholder={this.getPlaceholder()} collapsed={!!this.props.scrollTop} />
@@ -47,7 +63,7 @@ class Content extends Component {
       let DOMItem = findDOMNode(item)
       return DOMItem.offsetTop + DOMItem.offsetHeight >= this.props.scrollTop + 100
     }.bind(this))
-    Actions.changeSection(found.props.slug)
+    found && found.props.slug && Actions.changeSection(found.props.slug)
   }
 
   getItems() {

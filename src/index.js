@@ -28,17 +28,19 @@ render((
   <Router history={browserHistory}>
     <Redirect from='/' to='/tv-shows' />
 
-    <Route path='/tv-shows' component={App}>
+    <Route path='/tv-shows' category='tv-shows' component={App}>
       <IndexRoute component={Content} />
-      <Route path='/tv-shows/:id' component={TVShow}>
-          <IndexRedirect to='/tv-shows/:id/about' />
-          <Route path='/tv-shows/:id/about' component={TVShowAbout} />
-          <Route path='/tv-shows/:id/season/:season' component={Season} />
+      <Route path='/tv-shows/genre/:id' type='genre' component={Content} />
+      <Route path='show/:id' component={TVShow}>
+          <IndexRedirect to='about' />
+          <Route path='about' component={TVShowAbout} />
+          <Route path='season/:season' component={Season} />
       </Route>
     </Route>
-    <Route path='/movies' component={App}>
+    <Route path='/movies' category='movies' component={App}>
       <IndexRoute component={Content} />
-      <Route path='/movies/:id' component={Movie} />
+      <Route path='genre/:id' type='genre' component={Content} />
+      <Route path='movie/:id' component={Movie} />
     </Route>
     <Route path='*' component={App}>
       <IndexRoute component={NotFound} />
