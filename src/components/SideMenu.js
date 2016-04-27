@@ -36,7 +36,7 @@ class SideMenu extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.category !== nextProps.category) {
-      movieDB.getGenres.call(this, this.props.category)
+      movieDB.getGenres.call(this, nextProps.category)
     }
   }
 
