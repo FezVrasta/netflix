@@ -5,7 +5,12 @@ import 'babel-polyfill'
 
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, IndexRoute, IndexRedirect, Redirect, browserHistory } from 'react-router'
+import { createHistory } from 'history'
+import { Router, Route, IndexRoute, IndexRedirect, Redirect, useRouterHistory } from 'react-router'
+
+const browserHistory = useRouterHistory(createHistory)({
+    basename: '/netflix'
+});
 
 // components
 import App from './App'
