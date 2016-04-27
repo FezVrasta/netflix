@@ -1,0 +1,41 @@
+@require '../variables'
+$lineHeght = 3px
+
+.header
+  display: flex
+  align-items: center
+  height: 80px
+  background-color: #151C20
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.23), 0px 3px 6px 0px rgba(0,0,0,0.16)
+  padding-left: 30px
+  padding-right: 30px
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 2
+  box-sizing: border-box
+
+.logo
+  width: 176px
+  height: 50px
+  margin-right: 30px
+
+.item
+  display: flex
+  align-items: center
+  color: white
+  font-size: 18px
+  padding-left: 1em
+  padding-right: 1em
+  text-decoration: none
+  text-transform: uppercase
+  height: 80px
+  background-position: center unquote("calc(100% + 3px)")
+  transition: color 0.3s ease-out, background-position 0.2s ease-out
+  position: relative
+  &--active
+    color: $accent
+    background-image: linear-gradient($accent, $accent)
+    background-repeat: no-repeat
+    background-size: 100% $lineHeght
+    background-position: center 100%

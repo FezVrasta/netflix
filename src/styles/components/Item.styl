@@ -1,0 +1,65 @@
+.item
+  color: white
+  flex: 1
+  background-size: cover
+  background-position: center
+  display: flex
+  flex-direction: column
+  height: unquote('calc(100vh - 80px)')
+
+.header
+  padding: 40px 35px
+  display: flex
+  align-items: center
+  flex-shrink: 0
+
+  .title
+    font-size: 30px
+
+  .back-arrow
+    cursor: pointer
+    font-size: 34px
+    background: none
+    border: 0
+    color: white
+    padding: 0
+    text-decoration: none
+    position: relative
+    border-radius: 100%
+    padding: 0.3em
+    margin: -0.3em 30px -0.3em -0.3em
+
+
+$lineHeght = 3px
+.tabs
+  height: 40px
+  padding-left: 80px
+  overflow-x: auto
+  overflow-y: hidden
+  flex-shrink: 0
+  font-size: 0
+
+  .tab
+    display: flex
+    align-items: center
+    display: inline-flex
+    color: white
+    border-radius: 2px
+    font-size: 16px
+    padding-left: 1.5em
+    padding-right: 1.5em
+    text-decoration: none
+    text-transform: uppercase
+    height: 40px
+    background-position: center unquote("calc(100% + 3px)")
+    transition: color 0.3s ease-out, background-position 0.2s ease-out
+    white-space: nowrap
+    color: rgba(255,255,255,0.5)
+    position: relative
+    &--active
+      border-radius: 2px 2px 0 0
+      color: white
+      background-image: linear-gradient(white, white)
+      background-repeat: no-repeat
+      background-size: 100% $lineHeght
+      background-position: center 100%

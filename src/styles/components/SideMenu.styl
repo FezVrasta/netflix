@@ -1,0 +1,26 @@
+@require '../variables'
+
+.sideMenu
+  display: flex
+  flex-direction: column
+  padding-top: 30px
+  position: fixed
+  width: 235px
+
+.item
+  display: flex
+  align-items: center
+  padding-left: 30px
+  padding-right: 30px
+  height: 60px
+  color: white
+  text-transform: uppercase
+  text-decoration: none
+  font-size: 18px
+  transition: all 0.2s ease-out
+  position: relative
+
+  &--active
+    color: $accent
+    background: rgba(0,0,0,0.13)
+    border-radius: 0 2px 2px 0

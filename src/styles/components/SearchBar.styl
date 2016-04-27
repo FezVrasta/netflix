@@ -1,0 +1,105 @@
+@require '../variables'
+
+.searchBar
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin: 30px auto
+  position: fixed
+  width: unquote('calc(100vw - (235px + 25px * 2))')
+  right: 25px
+  top: 80px
+  z-index: 3
+  transition: all 0.5s ease-out, width 0.2s ease-out
+
+  &--collapsed
+    right: 25px
+    width: 60px
+    .input
+      border-radius: 60px
+      width: 780px
+      height: 60px
+
+.backdrop
+    position: fixed
+    top: 0
+    left: 0
+    z-index: -1
+    transition: background 0.5s ease-out, width 0s linear 0.5s, height 0s linear 2s
+    width: 0
+    height: 0
+
+    &--in
+      transition: background 0.5s ease-out
+      background: rgba(0,0,0,0.6)
+      width: 100%
+      height: 100%
+
+.input
+  transition: all 0.5s ease-out, box-shadow 0.2s ease-out, color 0.2s ease-out
+  color: black
+  font-size: 18px
+  border: 0
+  border-radius: 2px
+  padding: 0 1em
+  background: #FFF
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.23), 0px 3px 6px 0px rgba(0,0,0,0.16)
+  border-radius: 2px
+  height: 60px
+  width: 780px
+  max-width: 100%
+  box-sizing: border-box
+  -webkit-appearance: none
+
+  &.fab
+    display: flex
+    border: 0
+    color: #5D5D5D
+    padding: 0
+    font-size: 2em
+    padding: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    &:hover
+      box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.26), 0px 14px 28px 0px rgba(0,0,0,0.25)
+      color: $accent
+
+.searchResults
+  background: #FFF
+  border-radius: 0 0 2px 2px
+  width: 780px
+  max-width: 100%
+  min-height: 100px
+  margin-top: -2px
+  border-top: 1px solid #ECECEC
+  box-sizing: border-box
+  animation: expand 0.3s ease-out
+  color: #000
+  max-height: unquote('calc(100vh - 300px)')
+  display: flex
+
+  .top-results
+    flex: 1
+    min-height: 0
+    padding: 0 1.5em
+    overflow: auto
+
+  .top-item
+    font-size: 0
+    margin: 5px 5px 0 5px
+    display: inline-block
+    border-radius: 2px
+    min-height: 170px
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.23), 0px 1px 3px 0px rgba(0,0,0,0.16)
+    .poster
+      width: 136px
+      border-radius: 2px
+
+@keyframes expand {
+  from {
+    min-height: 0
+    padding: 0
+  }
+}

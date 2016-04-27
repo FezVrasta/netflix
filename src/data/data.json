@@ -1,0 +1,47 @@
+{
+  "api": {
+    "url": "http://api.themoviedb.org/3",
+    "key": "5354730df1acc50ec64b3518ec1ef10a",
+    "requests": {
+      "tvShows": "/tv",
+      "movies": "/movie"
+    }
+  },
+  "menuItems": [
+    { "slug": "tv-shows", "name": "TV Shows" },
+    { "slug": "movies", "name": "Movies" },
+    { "slug": "for-kids", "name": "For Kids" },
+    { "slug": "personal-watchlist", "name": "Personal Watchlist" }
+  ],
+  "sideMenuItems": {
+    "tvShows": [
+      { "slug": "trending-now", "name": "Trending Now", "api": "/tv/popular" },
+      { "slug": "watch-it-again", "name": "Watch It Again", "api": "/tv/top_rated" },
+      { "slug": "recently-added", "name": "Recently Added", "api": "/tv/airing_today" },
+      { "slug": "most-watched", "name": "Most Watched", "api": "/tv/airing_today" }
+    ],
+    "movies": [
+      { "slug": "trending-now", "name": "Trending Now", "api": "/movie/popular" },
+      { "slug": "watch-it-again", "name": "Watch It Again", "api": "/movie/top_rated" },
+      { "slug": "recently-added", "name": "Recently Added", "api": "/movie/upcoming" },
+      { "slug": "most-watched", "name": "In Theaters", "api": "/movie/now_playing" }
+    ]
+  },
+  "searchPlaceholders": {
+    "tvShows": "Search for TV shows here...",
+    "movies": "Search for movies here..."
+  },
+  "collections": {
+    "tvShows": [
+      "daredevil",
+      "jessica jones",
+      "house of cards",
+      "the walking dead",
+      "fear the walking dead",
+      "silicon valley",
+      "breaking bad",
+      "better call saul",
+      "person of interest"
+    ]
+  }
+}

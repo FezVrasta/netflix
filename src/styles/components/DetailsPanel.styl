@@ -1,0 +1,59 @@
+@require '../variables'
+
+.detailsPanel
+  background: #263238
+  height: 200px
+  box-shadow: 0px -3px 6px 0px rgba(0,0,0,0.13), 0px -3px 6px 0px rgba(0,0,0,0.06)
+  margin: 0 -80px
+  padding-left: 460px + 80px
+  padding-right: 80px
+  padding-top: 30px
+  padding-bottom: 30px
+  display: flex
+
+  .details
+    flex: 1
+
+  .play
+    display: flex
+    align-items: center
+    flex-direction: column
+    justify-content: center
+    .button
+      display: flex
+      align-items: center
+      padding: 0.5em 1em
+      background: $accent
+      border: 0
+      border-radius: 2px
+      text-transform: uppercase
+      font-weight: bold
+      font-size: 1.1em
+      text-decoration: none
+      color: white
+      width: 100%
+      box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.23), 0px 3px 6px 0px rgba(0,0,0,0.16)
+      margin: 0.5em 0
+      box-sizing: border-box
+      position: relative
+      &--modest
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+      .icon
+        margin-right: 0.5em
+
+
+.backdrop
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 3
+    transition: background 0.5s ease-out, width 0s linear 0.5s, height 0s linear 2s
+    width: 0
+    height: 0
+
+    &--in
+      transition: background 0.5s ease-out
+      background: rgba(0,0,0,0.6)
+      width: 100%
+      height: 100%

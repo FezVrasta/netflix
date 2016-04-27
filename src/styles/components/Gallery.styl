@@ -1,0 +1,48 @@
+.gallery
+  margin: -7px
+  text-align: center
+
+.list
+  display: flex
+  flex-wrap: wrap
+  overflow: hidden
+
+.title
+  position: relative
+  font-size: 20px
+  font-weight: lighter
+  flex: 100%
+  padding: 15px 7px
+  text-align: left
+
+.anchor
+  position: absolute
+  display: block
+  top: -80px
+
+.loadMore
+  border-radius: 2px
+  background: rgba(0,0,0,0.13)
+  border: 0
+  font-size: 20px
+  color: white
+  text-transform: uppercase
+  padding: 0.5em 2em
+  margin: 0 auto
+  cursor: pointer
+  font-weight: 300
+  margin-top: 7px
+  margin-bottom: 7px
+  animation: fade-in 0.5s ease-out
+
+.loading
+  margin: 5em
+  text-align: center
+  flex: 1
+  color: rgba(255,255,255,0.3)
+
+@keyframes fade-in {
+  from {
+    opacity: 0
+  }
+}
