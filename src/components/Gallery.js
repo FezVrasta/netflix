@@ -36,9 +36,11 @@ class Gallery extends Component {
     let shows = <div styleName='loading'>Loading...</div>
 
     this.state.results.length && ( shows = this.state.results.slice(0, this.state.to).map(function(show, index) {
+      // use `index` instead of `id` because the API sometimes returns items twice
+      // to avoid layout problems, we just show them twice instead of filtering them
       return <Card
         ref={index}
-        key={show.id}
+        key={index}
         id={show.id}
         pathname={this.props.pathname}
         image={show.backdrop_path} />
@@ -49,8 +51,11 @@ class Gallery extends Component {
       loadMore = <button onClick={this.loadMore.bind(this)} styleName='loadMore'>Load More...</button>
     }
 
+    let styleName = 'gallery'
+    this.props.isLast && (styleName += ' gallery--last')
+
     return (
-      <section styleName='gallery'>
+      <section styleName={styleName}>
         <h1 styleName='title'>
           <span styleName='anchor' id={this.props.slug}></span>
           {this.props.name}

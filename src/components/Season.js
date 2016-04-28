@@ -24,7 +24,7 @@ class Season extends Component {
 
   componentDidMount() {
     this.getSeason()
-    this.setState({ season: this.props.params.season })
+    this.setState({ season: +this.props.params.season })
 
     this.unlistenSelectEpisode = Actions.selectEpisode.listen(function(episode) {
       this.setState({ episode: episode })
@@ -37,7 +37,7 @@ class Season extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params.season !== this.state.season) {
-      this.setState({season: nextProps.params.season, episode: 1}, function() {
+      this.setState({season: +nextProps.params.season, episode: 1}, function() {
         this.getSeason()
       }.bind(this))
     }
@@ -47,6 +47,15 @@ class Season extends Component {
     let content
 
     if (this.state.item) {
+      let overview
+      if (this.state.item.overview) {
+        overview = <div styleName='overview'>
+          {this.state.item.overview.split('\n').map((row, i)=>{
+            return <span key={i}>{row}<br/></span>
+          })}
+        </div>
+      }
+
       let episodeOverview = this.state.item.episodes[this.state.episode - 1].overview
       let episodeOverviewTitleClass = this.state.item.overview ? 'title' : 'title title--no-padding'
       content = (
@@ -68,9 +77,7 @@ class Season extends Component {
                   {this.state.item.air_date}
                 </span>
               </header>
-              <div styleName='overview'>
-                {this.state.item.overview}
-              </div>
+              {overview}
               <div styleName='episodeOverview'>
                 <h2 styleName={episodeOverviewTitleClass}>Episode Overview</h2>
                 {episodeOverview}

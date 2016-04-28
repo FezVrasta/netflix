@@ -26,7 +26,8 @@ class Content extends Component {
   render() {
     let galleries
     if (this.props.route.type !== 'genre') {
-      galleries = this.getItems().map(function(item, index) {
+      let items = this.getItems()
+      galleries = items.map(function(item, index) {
         return item.api && (
           <Gallery
             key={index}
@@ -34,7 +35,8 @@ class Content extends Component {
             pathname={`${this.props.category}/${data.singular[camelCase(this.props.category)]}`}
             slug={item.slug}
             apiUrl={item.api}
-            ref={index} />
+            ref={index}
+            isLast={items.length === index+1} />
         )
       }.bind(this))
     } else {

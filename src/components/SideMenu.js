@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router'
 import { Actions } from '../actions/Actions'
 
 import movieDB from '../helpers/movieDB'
+import scrollLock from '../helpers/scrollLock'
 
 import _ from 'lodash'
 import scrollTo from 'scroll-to'
@@ -32,6 +33,13 @@ class SideMenu extends Component {
     this.unlistenRoute = browserHistory.listen(this.onRouteChangeBound);
 
     movieDB.getGenres.call(this, this.props.category)
+
+
+    this.refs.scroll && scrollLock.scrollLock(this.refs.scroll)
+  }
+
+  componentDidUpdate() {
+    this.refs.scroll && scrollLock.scrollLock(this.refs.scroll)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,6 +51,8 @@ class SideMenu extends Component {
   componentWillUnmount() {
     this.unlistenRoute()
     this.unlistenChangeSection()
+
+    this.refs.scroll && scrollLock.scrollLock(this.refs.scroll)
   }
 
   render() {
@@ -73,7 +83,7 @@ class SideMenu extends Component {
         <div styleName='genres'>
           <div styleName='divider' />
           <div styleName='item'>GENRES</div>
-          <div styleName='genres'>
+          <div styleName='genres' ref='scroll'>
             {list}
           </div>
         </div>
