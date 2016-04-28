@@ -90,7 +90,7 @@ class ItemCast extends Component {
     }
     return (
       <div styleName='cast'>
-        <Slider className={this.props.styles['slider']} {...settings}>
+        <Slider {...settings}>
           {cast}
         </Slider>
         <div styleName='detailsPanel'>
